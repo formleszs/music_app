@@ -1,0 +1,12 @@
+{
+  "name": "web-music-app",
+  "version": "1.0.0",
+  "description": "A Spotify-like music player web application",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
