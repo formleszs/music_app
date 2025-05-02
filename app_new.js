@@ -57,11 +57,12 @@ class MusicApp {
         const playerCover = document.getElementById('player-cover');
         const playPauseBtn = document.getElementById('play-pause-btn');
         const nextBtn = document.getElementById('next-btn');
-        const progress = document.querySelector('.progress-bar input');
+        const progress = document.querySelector('.progress input');
         const favoriteBtn = document.getElementById('favorite-btn');
         const dislikeBtn = document.getElementById('dislike-btn');
 
         // Установка обработчиков событий
+        playBtn.addEventListener('click', () => this.playTrack());
         playPauseBtn.addEventListener('click', () => this.togglePlay());
         nextBtn.addEventListener('click', () => this.playNextTrack());
         progress.addEventListener('input', (e) => this.seek(e.target.value));
@@ -124,16 +125,9 @@ class MusicApp {
 
     togglePlay() {
         this.isPaused = !this.isPaused;
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        playPauseBtn.textContent = this.isPaused ? '▶' : '⏸';
         
-        // Update both buttons
-        const centerPlayBtn = document.getElementById('play-btn');
-        const playerPlayBtn = document.getElementById('play-pause-btn');
-        
-        // Update text content
-        centerPlayBtn.textContent = this.isPaused ? '▶' : '⏸';
-        playerPlayBtn.textContent = this.isPaused ? '▶' : '⏸';
-        
-        // Update audio state
         if (!this.isPaused) {
             this.audio.play();
         } else {
