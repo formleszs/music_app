@@ -781,3 +781,51 @@ body {
     top: 0;
     left: 0;
 }
+
+.auth-btn {
+    background: var(--accent);
+    color: var(--light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background: #2a2a6a;
+}
+
+#login-btn, #logout-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--light);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#login-btn:hover, #logout-btn:hover {
+    opacity: 0.9;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+    text-align: center;
+    font-size: 14px;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff4444;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.success-message {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: #00C851;
+    border: 1px solid rgba(0, 255, 0, 0.2);
+}

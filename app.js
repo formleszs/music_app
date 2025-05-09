@@ -1,3 +1,5 @@
+import { setCookie, getCookie, deleteCookie } from './cookie-utils.js';
+
 class MusicApp {
     constructor() {
         this.favoriteTracks = new Set();
@@ -10,6 +12,13 @@ class MusicApp {
         this.progressInterval = null;
         this.currentUser = null;
         this.users = new Map(); // Хранилище пользователей
+
+        // Проверяем наличие токена в cookie при инициализации
+        const token = this.getCookie('token');
+        if (token) {
+            this.currentUser = { token };
+            this.updateAuthUI();
+        }
         
         // Инициализируем элементы
         this.elements = {
