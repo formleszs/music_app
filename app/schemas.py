@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 from typing import Optional, List
 
 class UserCreate(BaseModel):
@@ -10,7 +10,8 @@ class UserOut(BaseModel):
     phone: str
     is_active: bool
 
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        orm_mode = True
 
 class TrackCreate(BaseModel):
     title: str
@@ -23,7 +24,8 @@ class TrackOut(BaseModel):
     artist: str
     duration: int
 
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        orm_mode = True
 
 class TrackLike(BaseModel):
     track_id: int
